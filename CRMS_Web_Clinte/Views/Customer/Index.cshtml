@@ -1,0 +1,131 @@
+﻿@model IEnumerable<CRMS_Data.Entities.Customer>
+
+@{
+    ViewBag.Title = "AllCustomersDetails";
+}
+
+@{
+    var message = TempData["Message"] ?? string.Empty;
+}
+
+@*<p>
+        @Html.ActionLink("Create New", "Create","Customer",new {}, new { @class = "btn btn-info btn-sm" })
+    </p>*@
+
+<div class="col-sm-12" id="profile">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <span class="pull-right removable" data-effect="remove"><i class="glyphicon glyphicon-remove"></i></span>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                    <h3 class="panel-title title">All Customers Details</h3>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body table-responsive">
+                    <div>
+                        <p>
+                            @Html.ActionLink("Refreash", "Index", new { }, new { @class = "btn btn-info btn-sm" })
+                        </p>
+                    </div>
+                    @using (Html.BeginForm("Index", "Customer", FormMethod.Get))
+                    {
+                        <p>
+                            <div class="form-group">
+                                <label class="control-label">Find By Name/Email/Phone</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon input-sm">$</span>
+                                    @Html.TextBox("SearchString", "", new { @class = "form-control input-sm", required = "required" })
+                                    <input type="submit" class="btn btn-default btn-sm" value="Search" />
+                                    
+                                </div>
+                            </div>
+                        </p>
+                    }
+                    <table class="table table-responsive table-bordered table-hover table-condensed">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Gender)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Phone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Photo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Birthdate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NationalId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PassportNo)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Gender)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    <span style="height: 150px;width: 150px;"><img id="Photo1" src="data:image/gif;base64,@Html.DisplayFor(modelItem => item.Photo)" style="height: 150px; width: 150px;" /></span>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Birthdate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NationalId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PassportNo)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", "Customer", new { @id = item.UserId }, new { @class = "btn btn-default btn-sm" })<br /><br />
+                                    @Html.ActionLink("Details", "Details", "Customer", new { @id = item.UserId }, new { @class = "btn btn-info btn-sm" })<br /><br />
+                                    @Html.ActionLink("Delete", "Delete", "Customer", new { @id = item.UserId }, new { @class = "btn btn-danger btn-sm" })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+<script type="text/javascript">
+        var message = '@message';
+        if (message)
+            alert(message);
+</script>
+}
+

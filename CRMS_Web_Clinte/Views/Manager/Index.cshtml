@@ -1,0 +1,83 @@
+﻿@model CRMS_Web_Clinte.Models.DashboardViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-sm-4" id="profile">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <span class="pull-right removable" data-effect="remove"><i class="glyphicon glyphicon-remove"></i></span>
+                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                        <h3 class="panel-title title">Vehicles</h3>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body table-responsive">
+                        <h4>Total Number of Vehicles: @Html.DisplayFor(model => model.TotalVaicles)</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-sm-4" id="profile">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <span class="pull-right removable" data-effect="remove"><i class="glyphicon glyphicon-remove"></i></span>
+                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                        <h3 class="panel-title title">Employees</h3>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body table-responsive">
+                        <h4>Total Number of Employees: @Html.DisplayFor(model => model.TotalEmployee)</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-sm-4" id="profile">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <span class="pull-right removable" data-effect="remove"><i class="glyphicon glyphicon-remove"></i></span>
+                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                        <h3 class="panel-title title">Customers</h3>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body table-responsive">
+                        <h4>Total Number of Customers: @Html.DisplayFor(model => model.TotalCustomers)</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-sm-4" id="profile">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <span class="pull-right removable" data-effect="remove"><i class="glyphicon glyphicon-remove"></i></span>
+                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                        <h3 class="panel-title title">Customers</h3>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body table-responsive">
+                        <h4>Total Number of Customers: @Html.DisplayFor(model => model.TotalOngingRes)</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

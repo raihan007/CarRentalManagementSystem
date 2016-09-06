@@ -1,0 +1,24 @@
+﻿@using CRMS_Data.Entities
+@{
+    if (Session["USER"] != null)
+    {
+        Login logger = (Login)Session["USER"];
+        if (logger.Employee != null && logger.Employee.Role == "Manager")
+        {
+            Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+        }
+        else if (logger.Customer != null)
+        {
+            Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+        }
+        else
+        {
+            Layout = "~/Views/Shared/_Layout.cshtml";
+        }
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    
+}

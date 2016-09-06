@@ -1,0 +1,89 @@
+﻿@model IEnumerable<CRMS_Data.Entities.Reservation>
+
+@{
+    ViewBag.Title = "PendingReservation";
+}
+
+<h2>PendingReservation</h2>
+
+<table class="table table-responsive table-bordered table-hover table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickUpLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickUpDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickUpTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DropOffLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DropOffDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DropOffTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationVehicleId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickUpLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickUpDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickUpTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DropOffLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DropOffDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DropOffTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationVehicleId)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Details", "Details", new { id=item.ReservationId })
+                </td>*@
+        </tr>
+    }
+
+</table>

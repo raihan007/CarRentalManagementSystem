@@ -1,0 +1,74 @@
+﻿@model IEnumerable<CRMS_Data.Entities.Bill>
+
+@{
+    ViewBag.Title = "PendingBill";
+}
+
+<h2>PendingBill</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-responsive table-bordered table-hover table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BillAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BillDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BillStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BillCreated)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillCreated)
+            </td>
+            <td>
+                @Html.ActionLink("Pay Bill", "BillPay", new { id = item.BillId })
+            </td>
+        </tr>
+    }
+
+</table>

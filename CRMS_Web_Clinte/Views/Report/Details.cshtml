@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CRMS_Web_Clinte.Models.CarReport>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationEarn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GrandTotal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleName)
+        </td>
+        <td>
+            <span style="height: 150px;width: 150px;"><img id="Photo1" src="data:image/gif;base64,@Html.DisplayFor(modelItem => item.Photo)" style="height: 150px; width: 150px;" /></span>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservationEarn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GrandTotal)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+    </tr>
+}
+
+</table>

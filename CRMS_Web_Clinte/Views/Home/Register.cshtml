@@ -1,0 +1,182 @@
+﻿@using CRMS_Web_Clinte.Models
+@model RegisterCustomerViewModel
+
+@{
+    ViewBag.Title = "Create New Customer Account";
+}
+
+@using (Html.BeginForm("Register", "Home", FormMethod.Post, new { EncType = "multipart/form-data",@class = "form-horizontal", role = "form" }))
+{
+    <h4>Create a New Customer Account.</h4>
+    <hr />
+    @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @id = "errorNameMessage", @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Gender, new SelectList(Enum.GetValues(typeof(CRMS_Data.EnumCollections.EnumCollections.GenderList))), new { @id="Gender",@class = "form-control input-sm" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @id = "Email", @onchange = "onchangeevent('email');", @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @id = "errorEmailMessage", @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Phone, new { @id = "Phone", @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(m => m.Phone, "", new { @id = "errorPhoneMessage", @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Address, new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(m => m.Address, "", new { @id = "errorEmailMessage", @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Birthdate, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Birthdate, new { @class = "datepicker form-control input-sm", placeholder = "Enter Birth Date" })
+            @Html.ValidationMessageFor(m => m.Birthdate, "", new { @id = "errorEmailMessage", @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Photo, new { @class = "col-md-4 control-label" })
+                <div class="col-md-8">
+                    @Html.TextBoxFor(m => m.Photo, new { type = "file", @class = "form-control input-sm", onchange = "readURL(this);" })
+                    <br/><span style="height: 150px;width: 150px;"><img id="Photo1" src="~/Images/man.jpg" style="height: 150px; width: 150px;" /></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NationalId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NationalId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NationalId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PassportNo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PassportNo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PassportNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Username, new { @id="Username",@onchange = "onchangeevent('username');",@class = "form-control input-sm" })
+            @Html.ValidationMessageFor(m => m.Username, "", new { @id = "errorUsernameMessage", @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @id = "errorEmailMessage", @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @id = "errorEmailMessage", @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-success btn-sm" value="Register" />
+            @Html.ActionLink("Go To Login", "Index", "Home",new {},new {@class = "btn btn-info btn-sm"})
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function onchangeevent(keyWord) {
+
+            if (keyWord == "username") {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("CheckUsername", "Home")',
+                    data: '{username: "' + $('#Username').val() + '" }',// user name or email value  
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.toString() == 'true') {
+                            $('#errorUsernameMessage').html("Username already exists.");
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response);
+                    }
+                });
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("CheckUsername", "Home")',
+                    data: '{username: "' + $('#Email').val() + '" }',// user name or email value  
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.toString() == 'true') {
+                            $('#errorEmailMessage').html("Email already exists.");
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response);
+                    }
+                });
+            }
+        }
+    </script>
+    <script>
+        
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#Photo1')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function GetGender() {
+            alert($('#Gender').val());
+        }
+    </script>
+    
+    <script>
+        $(document).ready(function () {
+            $(".datepicker").datetimepicker();
+        });
+        
+    </script>
+
+}
+
+

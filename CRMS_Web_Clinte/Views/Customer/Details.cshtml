@@ -1,0 +1,89 @@
+﻿@model CRMS_Data.Entities.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+<div>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            <span style="height: 150px;width: 150px;"><img class="img-thumbnail" id="Photo1" src="data:image/gif;base64,@Html.DisplayFor(model => model.Photo)" style="height: 150px; width: 150px;" /></span>
+            
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NationalId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NationalId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassportNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassportNo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", "Customer", new { id = Model.UserId }, new { @class = "btn btn-sm btn-info" }) |
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-sm btn-default" })
+</p>

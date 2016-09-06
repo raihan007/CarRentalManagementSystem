@@ -1,0 +1,67 @@
+﻿@model CRMS_Data.Entities.Vehicle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vehicle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            <span style="height: 150px;width: 150px;"><img id="Photo1" src="data:image/gif;base64,@Html.DisplayFor(model => model.Photo)" style="height: 150px; width: 150px;" /></span>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Capacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostPerHour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostPerHour)
+        </dd>
+
+    </dl>
+    <br><br>
+    @ViewBag.Message
+</div>
+<p>
+    @Html.ActionLink("Back to List", "ChooseCar")
+</p>
